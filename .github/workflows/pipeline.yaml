@@ -7,18 +7,19 @@ jobs:
   extract-variables:
     runs-on: ubuntu-latest
 
-  steps:
+    steps:
     - name: Checkout repository
       uses: actions/checkout@v3
 
     - name: Run Action with example YAML
-        uses: fean-developer/github-action-python@latest
-        with:
-          yaml_file: 'config.yaml'
-          prefix: 'TEST_'
+      uses: fean-developer/github-action-python@v1.0.0
+      with:
+        yaml_file: 'config.yaml'
+        prefix: 'TEST_'
 
-      - name: Verify output
-        run: |
-          echo $TEST_ORGANIZATION_NAME
-          echo $TEST_API_NAME
-          echo $TEST_API_PATH
+    - name: Verify output
+      run: |
+        echo $TEST_ORGANIZATION_NAME
+        echo $TEST_ORGANIZATION_DESCRIPTION
+        echo $TEST_API_NAME
+        echo $TEST_API_PATH
