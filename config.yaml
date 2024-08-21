@@ -1,5 +1,4 @@
 api:
-
   name: Api Teste de Esteira
   path: /v1/spi/med/devolucao/cancelar
  
@@ -11,3 +10,13 @@ api:
     corsProfile: _default
     securityProfile: _default
     transactionsPerSecond: 500
+    cors:
+      allowOrigin: "*"
+      allowMethods: "GET, POST, PUT, DELETE, OPTIONS"
+      allowHeaders: "Authorization, Content-Type, Accept"
+      exposeHeaders: "Authorization, Content-Type, Accept"
+      maxAge: 3600
+      - uris:
+          uri: "/v1/spi/med/devolucao/cancelar"
+          uri: "/v1/spi/med/devolucao/descartar"
+          uri: "/v1/spi/med/devolucao/abandonar"
