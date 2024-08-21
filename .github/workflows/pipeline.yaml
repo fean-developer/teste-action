@@ -1,0 +1,24 @@
+name: Testando action
+
+on:
+  workflow_dispatch:
+
+jobs:
+  extract-variables:
+    runs-on: ubuntu-latest
+
+  steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Run Action with example YAML
+        uses: fean-developer/github-action-python@latest
+        with:
+          yaml_file: 'config.yaml'
+          prefix: 'TEST_'
+
+      - name: Verify output
+        run: |
+          echo $TEST_ORGANIZATION_NAME
+          echo $TEST_API_NAME
+          echo $TEST_API_PATH

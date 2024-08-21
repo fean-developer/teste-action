@@ -1,0 +1,13 @@
+api:
+
+  name: Api Teste de Esteira
+  path: /v1/spi/med/devolucao/cancelar
+ 
+  organization:
+    name: Organization teste api
+    description: "Organization Teste de esteira"
+
+  policies:
+    corsProfile: _default
+    securityProfile: _default
+    transactionsPerSecond: 500
