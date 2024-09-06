@@ -16,3 +16,13 @@ jobs:
       with:
         yaml_file: 'config.yaml'
         prefix: 'AXWAY_'
+
+    - name: Run groups messages
+      shell: bash
+      run: |
+        echo "::group::Otganizations"
+        echo "Listando pastas" 
+        ls -la
+        echo "Pastas Listadas"
+        echo "::endgroup::"
+        echo "### Hello world! :rocket:" >> $GITHUB_STEP_SUMMARY
