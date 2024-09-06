@@ -26,9 +26,14 @@ jobs:
         ls -la
         echo "As Pastas Listadas"
 
+        echo "::endgroup::"
+        
+        echo "::group::Config Yaml"
+
         echo "Exibir arquivo config.yaml"
         cat ./config.yaml
-        echo "\nFim do arquivo"
-
+        echo "Fim do arquivo \\n"
         echo "::endgroup::"
+
+        
         
