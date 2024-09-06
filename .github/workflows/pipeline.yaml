@@ -20,9 +20,10 @@ jobs:
     - name: Run groups messages
       shell: bash
       run: |
-        echo "::group::Otganizations"
-        echo "Listando pastas" 
+        echo "Teste exibir Group Logs :rocket:"
+        echo "::group::Organizations Lista de pastas"
+        echo "Listando todas as pastas" 
         ls -la
-        echo "Pastas Listadas"
+        echo "As Pastas Listadas"
         echo "::endgroup::"
-        echo "### Hello world! :rocket:" >> $GITHUB_STEP_SUMMARY
+        
