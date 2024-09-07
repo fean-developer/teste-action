@@ -18,7 +18,7 @@ jobs:
       - name: Run Action with example YAML
         uses: fean-developer/gha-typescript@GHA-TS-001
         with:
-          yaml_file: 'config.yaml'
+          config_file: 'config.yaml'
           prefix: 'AXWAY_'
         
         
