@@ -15,18 +15,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Setup Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ matrix.node-version }}  # Correção: Sem o símbolo
-    
-      - name: Install dependecies
-        run: npm install
-     
-      - name: Build
-        run: npm run build
-       
-
       - name: Run Action with example YAML
         uses: fean-developer/gha-typescript@GHA-TS-001
         with:
