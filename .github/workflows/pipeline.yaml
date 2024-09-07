@@ -18,23 +18,15 @@ jobs:
       - name: Setup Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node-version }}  # Correção: Sem o símbolo $
-      
-      - name: Cache NPM dependencies
-        uses: actions/cache@v3
-        with:
-          path: ~/.npm  # Caminho do cache de dependências do npm
-          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
+          node-version: ${{ matrix.node-version }}  # Correção: Sem o símbolo
     
       - name: Install dependecies
         run: npm install
-        working-directory: ${{ github.action_path }}
+        working-directory: fean-developer/gha-typescript
 
       - name: Build
-        run: npm rum build
-        working-directory: ${{ github.action_path }}
+        run: npm run build
+        working-directory: fean-developer/gha-typescript
 
       - name: Run Action with example YAML
         uses: fean-developer/gha-typescript@GHA-TS-001
