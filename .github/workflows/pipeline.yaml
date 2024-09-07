@@ -30,11 +30,11 @@ jobs:
     
       - name: Install dependecies
         run: npm install
-        working-directory: $GITHUB_ACTION_PATH
+        working-directory: ${{ github.action_path }}
 
       - name: Build
         run: npm rum build
-        working-directory: $GITHUB_ACTION_PATH
+        working-directory: ${{ github.action_path }}
 
       - name: Run Action with example YAML
         uses: fean-developer/gha-typescript@GHA-TS-001
