@@ -6,34 +6,30 @@ on:
 jobs:
   extract-variables:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ 22.x ]
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-    - name: Run Action with example YAML
-      uses: fean-developer/github-action-python@v2.0.2
-      with:
-        yaml_file: 'config.yaml'
-        prefix: 'AXWAY_'
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: $ {{ matrix.node-version }}
+          cache: 'npm'
+          cache-dependency-path: package-lock.json
+    
+      - name: Install dependecies
+        run: npm ci
 
-    - name: Run groups messages
-      shell: bash
-      run: |
-        echo "Teste exibir Group Logs :rocket:"
-        echo "::group::Organizations Lista de pastas"
-        echo "Listando todas as pastas" 
-        ls -la
-        echo "As Pastas Listadas"
+      - name: Build
+        run: npm rum build
 
-        echo "::endgroup::"
-        
-        echo "::group::Config Yaml"
-
-        echo "Exibir arquivo config.yaml"
-        cat ./config.yaml
-        echo "Fim do arquivo \\n"
-        echo "::endgroup::"
-
+      - name: Run Action with example YAML
+        uses: fean-developer/gha-typescript@GHA-TS-001
+        with:
+          yaml_file: 'config.yaml'
+          prefix: 'AXWAY_'
         
         
