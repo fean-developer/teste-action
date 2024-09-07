@@ -5,11 +5,8 @@ on:
 
 jobs:
   build:
-    name: Extract variables
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-         node-version: [18]  # Defina as versões do Node.js que você quer testar
+    using: 'docker'
+    image: 'Dockerfile'  # Defina as versões do Node.js que você quer testar
     
     steps:
       - name: Checkout code
