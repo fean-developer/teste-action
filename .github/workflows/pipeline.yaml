@@ -22,11 +22,10 @@ jobs:
     
       - name: Install dependecies
         run: npm install
-        working-directory: ./fean-developer/gha-typescript
-
+        working-directory: ./
       - name: Build
         run: npm run build
-        working-directory: ./fean-developer/gha-typescript
+        working-directory: ./
 
       - name: Run Action with example YAML
         uses: fean-developer/gha-typescript@GHA-TS-001
